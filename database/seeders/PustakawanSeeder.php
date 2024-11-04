@@ -15,7 +15,6 @@ class PustakawanSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'Pustakawan',
-            'username' => 'pustakawan',
             'email' => 'pustakawan@gmail.com',
             'password' => Hash::make('password'),
             'created_at' => now(),

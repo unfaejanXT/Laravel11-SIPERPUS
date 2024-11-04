@@ -16,33 +16,39 @@ class GeneralSeeder extends Seeder
     public function run(): void
     {
         $role_admin = Role::create([
-            'name' => 'admin'
+            'name' => 'admin',
+            'guard_name' => 'web'
         ]);
 
         $role_pustakawan = Role::create([
-            'name' => 'pustakawan'
+            'name' => 'pustakawan',
+            'guard_name' => 'web'
         ]);
 
         $role_mahasiswa = Role::create([
-            'name' => 'mahasiswa'
+            'name' => 'mahasiswa',
+            'guard_name' => 'web'
         ]);
 
         $permission = Permission::create([
-            'name' => 'create'
+            'name' => 'create',
+            'guard_name' => 'web'
         ]);
         $permission = Permission::create([
-            'name' => 'update'
+            'name' => 'update',
+            'guard_name' => 'web'
         ]);
         $permission = Permission::create([
-            'name' => 'read'
+            'name' => 'read',
+            'guard_name' => 'web'
         ]);
         $permission = Permission::create([
-            'name' => 'delete'
+            'name' => 'delete',
+            'guard_name' => 'web'
         ]);
 
         $mahasiswa = User::create([
             'name' => 'Mahasiswa 1',
-            'username' => 'mahasiswa1',
             'email' => 'mahasiswa@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
@@ -53,7 +59,6 @@ class GeneralSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'Admin',
-            'username' => 'admin1',
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
@@ -63,17 +68,17 @@ class GeneralSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        $role_admin->givePermissionTo('read');
-        $role_admin->givePermissionTo('update');
-        $role_admin->givePermissionTo('delete');
-        $role_admin->givePermissionTo('create');
+        // $role_admin->givePermissionTo('read');
+        // $role_admin->givePermissionTo('update');
+        // $role_admin->givePermissionTo('delete');
+        // $role_admin->givePermissionTo('create');
 
-        $role_pustakawan->givePermissionTo('read');
-        $role_pustakawan->givePermissionTo('update');
-        $role_pustakawan->givePermissionTo('delete');
-        $role_pustakawan->givePermissionTo('create');
+        // $role_pustakawan->givePermissionTo('read');
+        // $role_pustakawan->givePermissionTo('update');
+        // $role_pustakawan->givePermissionTo('delete');
+        // $role_pustakawan->givePermissionTo('create');
 
-        $role_mahasiswa->givePermissionTo('read');
+        // $role_mahasiswa->givePermissionTo('read');
     }
 }
 
