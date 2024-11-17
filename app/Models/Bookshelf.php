@@ -8,4 +8,5 @@ class Bookshelf extends Model
 {
     //
     protected $table = "bookshelfs";
+    public $timestamps = false;
 }

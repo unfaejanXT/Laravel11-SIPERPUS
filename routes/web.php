@@ -15,8 +15,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-    Route::view('/roles','role')->name('role')->middleware(['role:pustakawan']);
+Route::middleware(['auth','role:pustakawan'])->group(function () {
+    Route::view('/roles','role')->name('role');
 });
 
 require __DIR__.'/auth.php';
